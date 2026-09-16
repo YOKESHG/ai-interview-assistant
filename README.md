@@ -1,16 +1,93 @@
-# React + Vite
+# AI Interview Assistant
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A portfolio-ready technical interview simulator built with React, Bootstrap, Node.js, Express, and Google Gemini.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Technology selection
+- Beginner, Intermediate, and Advanced difficulty
+- Custom number of questions
+- Custom interview time limit
+- Timed interview sessions
+- Question generation
+- Answer evaluation
+- Correct, partial, and incorrect scoring
+- Model answers and improvement feedback
+- Interview summary
+- Question-by-question review
+- Persistent local interview history
+- Performance dashboard
+- Technology performance analytics
+- Difficulty performance analytics
+- Development mock AI mode
+- Gemini production mode
+- Backend API key protection
+- Helmet security headers
+- API rate limiting
+- Input validation
+- Health endpoint
 
-## React Compiler
+## Local setup
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Frontend
 
-## Expanding the ESLint configuration
+```bash
+npm install
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Backend
+
+```bash
+cd backend
+npm install
+```
+
+Copy `.env.example` to `.env` and configure the values.
+
+Start the backend:
+
+```bash
+npm start
+```
+
+The backend uses port 5001 by default.
+
+## Gemini mode
+
+Keep `DEV_MODE=true` while developing without consuming Gemini quota.
+
+For real Gemini question generation and evaluation:
+
+```env
+DEV_MODE=false
+GEMINI_API_KEY=your_key
+```
+
+## Deployment
+
+Deploy the frontend to Vercel or another Vite-compatible host.
+
+Set:
+
+```env
+VITE_API_URL=https://your-backend-domain.example.com
+```
+
+Deploy the backend to Render, Railway, or another Node.js-compatible host.
+
+Set:
+
+```env
+PORT=5001
+DEV_MODE=false
+GEMINI_API_KEY=your_key
+GEMINI_MODEL=gemini-3.6-flash
+FRONTEND_URL=https://your-frontend-domain.example.com
+```
+
+Do not put `GEMINI_API_KEY` in the React frontend.
+
+## Portfolio talking points
+
+The project demonstrates React state management, REST APIs, asynchronous requests, client-side persistence, responsive UI, analytics, timed workflows, backend validation, API security, and external AI integration.
