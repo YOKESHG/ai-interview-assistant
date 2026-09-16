@@ -480,6 +480,34 @@ function App() {
         }
     };
 
+    const exitInterview = () => {
+        const confirmed = window.confirm(
+            "Are you sure you want to exit? Your current test progress will be lost."
+        );
+
+        if (!confirmed) return;
+
+        setInterviewStarted(false);
+        setInterviewFinished(false);
+        setGeneratedQuestion("");
+        setUserAnswer("");
+        setAiFeedback("");
+        setModelAnswer("");
+        setImprovement("");
+        setQuestionNumber(0);
+        setScore(0);
+        setCorrectAnswers(0);
+        setPartialAnswers(0);
+        setIncorrectAnswers(0);
+        setAnswerEvaluated(false);
+        setUsedQuestions([]);
+        setQuestionResults([]);
+        setTimeLeft(0);
+        setFinishReason("completed");
+        setGeneratingQuestion(false);
+        setEvaluatingAnswer(false);
+    };
+
     const finishInterview = (reason = "completed") => {
         const percentage = Math.round((score / maxScore) * 100);
 
@@ -1126,6 +1154,15 @@ function App() {
                             <div className={`timer-display ${timerClass}`}>
                                 {formatTime(timeLeft)}
                             </div>
+
+                            <button
+                                type="button"
+                                className="btn btn-outline-danger btn-lg px-4"
+                                onClick={exitInterview}
+                                disabled={generatingQuestion || evaluatingAnswer}
+                            >
+                                Exit Test
+                            </button>
                         </div>
 
                         <div className="d-flex justify-content-between mb-2">
